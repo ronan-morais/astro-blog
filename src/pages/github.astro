@@ -1,0 +1,7 @@
+---
+const res = await fetch("https://api.github.com/users/ronan-morais")
+const data = await res.json()
+---
+<ul>
+  <li>{data.login}</li>
+</ul>
