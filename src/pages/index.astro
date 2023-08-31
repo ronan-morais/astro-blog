@@ -1,4 +1,8 @@
 ---
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/header.astro";
+import Rodape from "../components/footer.astro"
 const pageTitle = "Astro Blog";
 ---
 
@@ -7,11 +11,11 @@ const pageTitle = "Astro Blog";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+    <ViewTransitions/>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Header />
     <h1>{pageTitle}</h1>
+    <Rodape/>
   </body>
 </html>
