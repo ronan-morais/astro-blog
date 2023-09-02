@@ -1,22 +1,9 @@
 ---
-import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/header.astro";
-import Rodape from "../components/footer.astro"
+import LayoutBase from "../layouts/layoutBase.astro";
 const pageTitle = "My Astro Learning Blog";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <ViewTransitions/>
-  </head>
-  <body>
-    <Header />
+<LayoutBase tituloPagina={pageTitle}>
     <h1>{pageTitle}</h1>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
@@ -24,9 +11,5 @@ const pageTitle = "My Astro Learning Blog";
       <li><a href="/posts/post-2">Post 2</a></li>
       <li><a href="/posts/post-3">Post 3</a></li>
     </ul>
-    <Rodape/>
-    <script>
-      import "../scripts/menu.js"
-    </script>
-  </body>
+  </LayoutBase>
 </html>

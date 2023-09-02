@@ -1,8 +1,5 @@
 ---
-import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/header.astro";
-import Rodape from "../components/footer.astro";
+import LayoutBase from "../layouts/layoutBase.astro";
 
 const pageTitle = "About Me";
 const identity = {
@@ -15,66 +12,38 @@ const skills = ["html", "css", "javascript", "react", "Astro", "writing docs"];
 const happy = true;
 const finished = false;
 const goal = 3;
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-    <ViewTransitions/>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro Site!</h2>
-    <p>I am working through Astro's introductory tutorial.</p>
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}</li>
-      <li>
-        I live in {identity.country} and i work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map(skill => <li class="skill">{skill}</li>)}
-    </ul>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-    {finished && <p>I finished this tutorial!</p>}
+<LayoutBase tituloPagina="Sobre">
+  <h1>{pageTitle}</h1>
+  <h2>... and my new Astro Site!</h2>
+  <p>I am working through Astro's introductory tutorial.</p>
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}</li>
+    <li>
+      I live in {identity.country} and i work as a {identity.occupation}.
+    </li>
     {
-      goal === 3 ? (
-        <p>My goal is to finish in 3 days.</p>
-      ) : (
-        <p>My goal is not 3 days</p>
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
       )
     }
-    <Rodape />
-    <script>
-      import "../scripts/menu.js"
-    </script>
-  </body>
-</html>
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map(skill => <li class="text-green-700 font-black">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+  {finished && <p>I finished this tutorial!</p>}
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days</p>
+    )
+  }
+</LayoutBase>

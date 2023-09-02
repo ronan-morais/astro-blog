@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/layoutPost.astro
 title: "My Third Blog Post"
 pubDate: 2023-07-01
 description: "I had some challenges, but asking in the helped!"

@@ -1,7 +1,11 @@
 ---
-const res = await fetch("https://api.github.com/users/ronan-morais")
-const data = await res.json()
+import LayoutBase from "../layouts/layoutBase.astro";
+const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+const data = await res.json();
 ---
-<ul>
-  <li>{data.login}</li>
-</ul>
+
+<LayoutBase tituloPagina="api">
+  <ul>
+    <li class="">{data.map(item => item.title)}</li>
+  </ul>
+</LayoutBase>

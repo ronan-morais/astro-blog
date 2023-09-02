@@ -1,24 +1,8 @@
 ---
-import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/header.astro";
-import Rodape from "../components/footer.astro"
-const pageTitle = "Astro Blog";
+import LayoutBase from "../layouts/layoutBase.astro";
+const pageTitle = "Astro Blog Fast";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <ViewTransitions/>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <Rodape/>
-    <script>
-      import "../scripts/menu.js"
-    </script>
-  </body>
-</html>
+<LayoutBase tituloPagina={pageTitle}>
+  <h2>Subtitulo do layout base</h2>
+</LayoutBase>
